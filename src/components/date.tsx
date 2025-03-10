@@ -9,10 +9,10 @@ dayjs.extend(utc);
 export const DateSelector: React.FC<DateSelectorProps> = ({
     date,
     setToday,
-    setYesterday,
+    setTomorrow,
 }) => {
     const setDate = (newDate?: dayjs.Dayjs) => {
-        const currentTime = dayjs.utc().startOf('hour');
+        const currentTime = dayjs.utc().startOf('day');
         if (!newDate) return;
 
         if (newDate.isAfter(currentTime)) {
@@ -20,8 +20,8 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
         }
 
         if (date !== newDate) {
-            setToday(newDate);
-            setYesterday(newDate.subtract(1, 'day').startOf('hour'));
+            setToday(newDate.startOf('day'));
+            setTomorrow(newDate.startOf('day').add(1, 'day'));
         }
     }
 

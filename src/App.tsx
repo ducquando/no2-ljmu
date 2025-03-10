@@ -11,6 +11,7 @@ import measurementsFallback from './data/measurements.json';
 dayjs.extend(utc);
 
 const corsProxy = process.env.REACT_APP_PROXY || '';
+const openaq = process.env.REACT_APP_API_KEY || '';
 
 const App: React.FC = () => {
     // LOCATION
@@ -18,8 +19,8 @@ const App: React.FC = () => {
     const [sensorID, setSensorID] = useState<number>(5022);
 
     // TIME
-    const [today, setToday] = useState(dayjs.utc().startOf('hour'));
-    const [yesterday, setYesterday] = useState(dayjs.utc().startOf('hour').subtract(1, 'day'));
+    const [today, setToday] = useState(dayjs.utc().startOf('day'));
+    const [tomorrow, setTomorrow] = useState(dayjs.utc().startOf('day').add(1, 'day'));
 
     // DATA
     const [measurementData, setMeasurementData] = useState<MeasurementsProps>(measurementsFallback.results);
@@ -30,7 +31,7 @@ const App: React.FC = () => {
         fetch(`${corsProxy}https://api.openaq.org/v3/locations/${locationID}`, {
             method: 'GET',
             headers: {
-                'X-API-Key': '3f247d3fd8306651868fc98a6de230e38d18ae5c7946b06741428a42b2413579',
+                'X-API-Key': openaq,
             },
         })
             .then((response) => {
@@ -55,13 +56,13 @@ const App: React.FC = () => {
 
     // Fetch measurement data
     useEffect(() => {
-        const yesterdayTime = yesterday.format(DATE_FORMATS.API);
+        const tomorrowTime = tomorrow.format(DATE_FORMATS.API);
         const todayTime = today.format(DATE_FORMATS.API);
 
-        fetch(`${corsProxy}https://api.openaq.org/v3/sensors/${sensorID}/measurements?datetime_from=${yesterdayTime}&datetime_to=${todayTime}`, {
+        fetch(`${corsProxy}https://api.openaq.org/v3/sensors/${sensorID}/measurements?datetime_from=${todayTime}&datetime_to=${tomorrowTime}`, {
             method: 'GET',
             headers: {
-                'X-API-Key': '3f247d3fd8306651868fc98a6de230e38d18ae5c7946b06741428a42b2413579',
+                'X-API-Key': openaq,
             },
         })
             .then((response) => {
@@ -70,7 +71,7 @@ const App: React.FC = () => {
             .then((data) => {
                 setMeasurementData(data.results);
             })
-    }, [sensorID, today, yesterday]);
+    }, [sensorID, today, tomorrow]);
 
     return (
         <div style={{ padding: '20px 50px', display: 'flex', flexDirection: 'column', gap: '24px', }}>
@@ -87,13 +88,13 @@ const App: React.FC = () => {
             </Card>
             <Card
                 title="Data Readings"
-                extra={<DateSelector date={today} setToday={setToday} setYesterday={setYesterday} />}
+                extra={<DateSelector date={today} setToday={setToday} setTomorrow={setTomorrow} />}
             >
                 <Card.Grid hoverable={false} style={{ width: '100%' }}>
                     <StatsCard measurements={measurementData} />
                 </Card.Grid>
                 <Card.Grid hoverable={false} style={{ width: '100%', height: '400px' }}>
-                    <DataChart measurements={measurementData} endTime={today} startTime={yesterday} />
+                    <DataChart measurements={measurementData} endTime={tomorrow} startTime={today} />
                 </Card.Grid>
                 <Card.Grid hoverable={false} style={{ width: '100%' }}>
                     <DataTable location={locationData} measurements={measurementData} sensorID={sensorID} />
