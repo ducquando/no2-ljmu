@@ -47,7 +47,7 @@ export interface StatsCardProps {
 export interface DateSelectorProps {
     date: dayjs.Dayjs;
     setToday: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
-    setYesterday: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
+    setTomorrow: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
 }
 
 export interface DataTableProps {
