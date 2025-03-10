@@ -1,0 +1,111 @@
+{
+    "meta": {
+        "name": "openaq-api",
+        "website": "/",
+        "page": 1,
+        "limit": 100,
+        "found": 1
+    },
+    "results": [
+        {
+            "id": 2533,
+            "name": "Wirral Tranmere - UKA00406",
+            "locality": "Liverpool",
+            "timezone": "Europe/London",
+            "country": {
+                "id": 79,
+                "code": "GB",
+                "name": "United Kingdom"
+            },
+            "owner": {
+                "id": 4,
+                "name": "Unknown Governmental Organization"
+            },
+            "provider": {
+                "id": 70,
+                "name": "EEA"
+            },
+            "isMobile": false,
+            "isMonitor": true,
+            "instruments": [
+                {
+                    "id": 2,
+                    "name": "Government Monitor"
+                }
+            ],
+            "sensors": [
+                {
+                    "id": 5022,
+                    "name": "no2 µg/m³",
+                    "parameter": {
+                        "id": 5,
+                        "name": "no2",
+                        "units": "µg/m³",
+                        "displayName": "NO₂ mass"
+                    }
+                },
+                {
+                    "id": 5023,
+                    "name": "o3 µg/m³",
+                    "parameter": {
+                        "id": 3,
+                        "name": "o3",
+                        "units": "µg/m³",
+                        "displayName": "O₃ mass"
+                    }
+                },
+                {
+                    "id": 28999,
+                    "name": "pm10 µg/m³",
+                    "parameter": {
+                        "id": 1,
+                        "name": "pm10",
+                        "units": "µg/m³",
+                        "displayName": "PM10"
+                    }
+                },
+                {
+                    "id": 5025,
+                    "name": "pm25 µg/m³",
+                    "parameter": {
+                        "id": 2,
+                        "name": "pm25",
+                        "units": "µg/m³",
+                        "displayName": "PM2.5"
+                    }
+                }
+            ],
+            "coordinates": {
+                "latitude": 53.37286999973297,
+                "longitude": -3.0227219995542067
+            },
+            "licenses": [
+                {
+                    "id": 10,
+                    "name": "ODC-BY",
+                    "attribution": {
+                        "name": "Unknown Governmental Organization",
+                        "url": null
+                    },
+                    "dateFrom": "2016-11-17",
+                    "dateTo": null
+                }
+            ],
+            "bounds": [
+                -3.0227219995542067,
+                53.37286999973297,
+                -3.0227219995542067,
+                53.37286999973297
+            ],
+            "distance": null,
+            "datetimeFirst": {
+                "utc": "2016-02-27T21:00:00Z",
+                "local": "2016-02-27T21:00:00Z"
+            },
+            "datetimeLast": {
+                "utc": "2025-03-09T01:00:00Z",
+                "local": "2025-03-09T01:00:00Z"
+            }
+        }
+    ]
+}
