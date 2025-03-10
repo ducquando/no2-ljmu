@@ -13,7 +13,7 @@ export const DateSelector: React.FC<DateSelectorProps> = ({
 }) => {
     const setDate = (newDate?: dayjs.Dayjs) => {
         const currentTime = dayjs.utc().startOf('hour');
-        if (newDate == null && newDate == undefined) return;
+        if (!newDate) return;
 
         if (newDate.isAfter(currentTime)) {
             newDate = currentTime;

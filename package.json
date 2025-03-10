@@ -25,12 +25,8 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"start": "env-cmd react-scripts start",
-		"build": "env-cmd react-scripts build",
-		"test": "env-cmd react-scripts test",
-		"eject": "env-cmd react-scripts eject"
+		"build": "env-cmd react-scripts build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -45,9 +41,9 @@
 			"not op_mini all"
 		],
 		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
+			"last 2 chrome version",
+			"last 2 firefox version",
+			"last 2 safari version"
 		]
 	},
 	"devDependencies": {

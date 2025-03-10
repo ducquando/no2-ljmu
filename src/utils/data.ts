@@ -1,6 +1,6 @@
 import { DATE_FORMATS } from "./format";
 import { LocationProps, MeasurementsProps } from "./types";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(utc);
