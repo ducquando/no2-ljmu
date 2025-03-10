@@ -2,6 +2,15 @@
 
 This project is to display the NO2 data live.
 
+## Setup
+
+Create the `.env` file in your root directory with the following contents:
+
+```
+REACT_APP_API_KEY=<YOUR-OPENAQ-API-KEY>
+REACT_APP_PROXY=https://proxy.corsfix.com/?
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
