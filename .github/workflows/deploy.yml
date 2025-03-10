@@ -1,9 +1,5 @@
 name: Deploy to GitHub Pages
 
-permissions:
-  contents: read
-  pages: write 
-
 on:
   push:
     branches:
@@ -28,7 +24,7 @@ jobs:
       - name: Build project
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-          REACT_APP_PROXY: ""
+          REACT_APP_PROXY: "https://thingproxy.freeboard.io/fetch/"
         run: npm run build
 
       - name: Deploy to GitHub Pages
