@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/no2-ljmu/static/css/main.e6c13ad2.css",
-    "main.js": "/no2-ljmu/static/js/main.d28cae5e.js",
+    "main.js": "/no2-ljmu/static/js/main.b7766a1e.js",
     "index.html": "/no2-ljmu/index.html",
     "main.e6c13ad2.css.map": "/no2-ljmu/static/css/main.e6c13ad2.css.map",
-    "main.d28cae5e.js.map": "/no2-ljmu/static/js/main.d28cae5e.js.map"
+    "main.b7766a1e.js.map": "/no2-ljmu/static/js/main.b7766a1e.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.d28cae5e.js"
+    "static/js/main.b7766a1e.js"
   ]
 }
